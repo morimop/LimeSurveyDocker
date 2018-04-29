@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  webap:
+    image: morimop/limesurvey:3.71
+    ports:
+      - "80:80"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql/mysql-server:5.7
+    environment:
+      - MYSQL_USER=limesurvey
+      - MYSQL_PASSWORD=limesurvey371
+      - MYSQL_DATABASE=mydb
