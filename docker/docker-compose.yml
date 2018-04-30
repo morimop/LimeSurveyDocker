@@ -7,10 +7,16 @@ services:
       - "80:80"
     depends_on:
       - mysql
+    environment:
+      - "MYSQL_HOSTNAME=${MYSQL_HOSTNAME}"
+      - MYSQL_PORT=3306
+      - "MYSQL_USER=${MYSQL_USER}"
+      - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
+      - "MYSQL_DATABASE=${MYSQL_DATABASE}"
 
   mysql:
     image: mysql/mysql-server:5.7
     environment:
-      - MYSQL_USER=limesurvey
-      - MYSQL_PASSWORD=limesurvey371
-      - MYSQL_DATABASE=mydb
+      - "MYSQL_USER=${MYSQL_USER}"
+      - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
+      - "MYSQL_DATABASE=${MYSQL_DATABASE}"
